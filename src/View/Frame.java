@@ -136,7 +136,7 @@ public class Frame extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tabeldetail = new javax.swing.JTable();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         pasLabViewMedRec = new javax.swing.JLabel();
@@ -146,13 +146,13 @@ public class Frame extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         namaDetailMedRec = new javax.swing.JTextField();
-        idDetailMedRec = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jRadioButton7 = new javax.swing.JRadioButton();
         jRadioButton8 = new javax.swing.JRadioButton();
+        idDetailMedRec = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         ketDetailMedRec = new javax.swing.JTextArea();
@@ -164,14 +164,14 @@ public class Frame extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tabelUser = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        searchDokHomeBtn = new javax.swing.JButton();
+        tambahDokHomBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -853,6 +853,11 @@ public class Frame extends javax.swing.JFrame {
                 "No", "Nama Dokter", "Penyakit", "Tanggal Periksa"
             }
         ));
+        tabelPasien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelPasienMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelPasien);
         if (tabelPasien.getColumnModel().getColumnCount() > 0) {
             tabelPasien.getColumnModel().getColumn(0).setMinWidth(20);
@@ -1040,7 +1045,7 @@ public class Frame extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tabeldetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1147,11 +1152,16 @@ public class Frame extends javax.swing.JFrame {
                 "No", "Dokter", "Penyakit", "Tanggal"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setMinWidth(20);
-            jTable2.getColumnModel().getColumn(0).setPreferredWidth(30);
-            jTable2.getColumnModel().getColumn(0).setMaxWidth(50);
+        tabeldetail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabeldetailMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tabeldetail);
+        if (tabeldetail.getColumnModel().getColumnCount() > 0) {
+            tabeldetail.getColumnModel().getColumn(0).setMinWidth(20);
+            tabeldetail.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tabeldetail.getColumnModel().getColumn(0).setMaxWidth(50);
         }
 
         jLabel25.setText("Nama Pasien : ");
@@ -1227,7 +1237,7 @@ public class Frame extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        idDetailMedRec.setEditable(false);
+        namaDetailMedRec.setEditable(false);
 
         jLabel28.setText("Tanggal");
 
@@ -1238,10 +1248,13 @@ public class Frame extends javax.swing.JFrame {
         jLabel31.setText("Status");
 
         btgAddMedRec.add(jRadioButton7);
+        jRadioButton7.setSelected(true);
         jRadioButton7.setText("Sembuh");
 
         btgAddMedRec.add(jRadioButton8);
         jRadioButton8.setText("Belum Sembuh");
+
+        idDetailMedRec.setEditable(false);
 
         jLabel32.setText("Keterangan");
 
@@ -1253,7 +1266,11 @@ public class Frame extends javax.swing.JFrame {
 
         cancelDetailMedRec.setText("Back");
 
+        tanggalDetailMedRec.setEditable(false);
+
         jLabel33.setText("Dokter");
+
+        dokterViewMedRecDetail.setEditable(false);
 
         javax.swing.GroupLayout viewMedDetailLayout = new javax.swing.GroupLayout(viewMedDetail);
         viewMedDetail.setLayout(viewMedDetailLayout);
@@ -1344,7 +1361,7 @@ public class Frame extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tabelUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -1381,7 +1398,7 @@ public class Frame extends javax.swing.JFrame {
                 "ID USER", "Nama User"
             }
         ));
-        jScrollPane5.setViewportView(jTable3);
+        jScrollPane5.setViewportView(tabelUser);
 
         jLabel8.setText("Search Pasien");
 
@@ -1389,9 +1406,14 @@ public class Frame extends javax.swing.JFrame {
 
         jLabel10.setText("Nama User");
 
-        jButton2.setText("Search");
+        searchDokHomeBtn.setText("Search");
 
-        jButton3.setText("Tambah Data Pasien Baru");
+        tambahDokHomBtn.setText("Tambah Data Pasien Baru");
+        tambahDokHomBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tambahDokHomBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout dokHomeLayout = new javax.swing.GroupLayout(dokHome);
         dokHome.setLayout(dokHomeLayout);
@@ -1407,7 +1429,7 @@ public class Frame extends javax.swing.JFrame {
                     .addGroup(dokHomeLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(dokHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2)
+                            .addComponent(searchDokHomeBtn)
                             .addGroup(dokHomeLayout.createSequentialGroup()
                                 .addGroup(dokHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9)
@@ -1417,7 +1439,7 @@ public class Frame extends javax.swing.JFrame {
                                     .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                                     .addComponent(jTextField1))))
                         .addGap(179, 179, 179)
-                        .addComponent(jButton3)))
+                        .addComponent(tambahDokHomBtn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         dokHomeLayout.setVerticalGroup(
@@ -1430,13 +1452,13 @@ public class Frame extends javax.swing.JFrame {
                 .addGroup(dokHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(tambahDokHomBtn))
                 .addGap(18, 18, 18)
                 .addGroup(dokHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addComponent(searchDokHomeBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1654,6 +1676,46 @@ public class Frame extends javax.swing.JFrame {
         dokterFrame.saveDataPenyakitPasien(pe, p.getNama(), p.getId());
     }//GEN-LAST:event_submitAddMedRecActionPerformed
 
+    private void tambahDokHomBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahDokHomBtnActionPerformed
+        // TODO add your handling code here:
+        CardLayout cardLayout = (CardLayout) induk.getLayout();
+        cardLayout.show(induk, "viewMedicalRecord");
+        pasienFrame.setId(tabelUser.getValueAt(tabelUser.getSelectedRow(), 0).toString());
+        pasienFrame.setNama(tabelUser.getValueAt(tabelUser.getSelectedRow(), 1).toString());
+        ResultSet rs=pasienFrame.viewMedRec();
+        int i=0;
+        idLabViewMedRec.setText(pasienFrame.getId());
+        pasLabViewMedRec.setText(pasienFrame.getNama());
+        try {
+            while(rs.next())
+            {
+                tabeldetail.setValueAt(Integer.toString(i), 0, i);
+                Dokter d=new Dokter();
+                tabeldetail.setValueAt(d.getNamaById(rs.getString(2)), 0, i);
+                tabeldetail.setValueAt(rs.getString(3), 0, i);
+                tabeldetail.setValueAt(rs.getString(4), 0, i);
+                i++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Frame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_tambahDokHomBtnActionPerformed
+
+    private void tabeldetailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabeldetailMouseClicked
+        // TODO add your handling code here:
+        CardLayout cardLayout = (CardLayout) induk.getLayout();
+        cardLayout.show(induk, "viewMedDetail");
+        
+        
+    }//GEN-LAST:event_tabeldetailMouseClicked
+
+    private void tabelPasienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPasienMouseClicked
+        // TODO add your handling code here:
+        CardLayout cardLayout = (CardLayout) induk.getLayout();
+        cardLayout.show(induk, "viewMedDetail");
+    }//GEN-LAST:event_tabelPasienMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1710,8 +1772,6 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JTextField idRegPas;
     private javax.swing.JPanel induk;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1772,8 +1832,6 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField keahlianRegDok;
@@ -1808,8 +1866,12 @@ public class Frame extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser pilihTanggal;
     private javax.swing.JButton saveBtnRegDok;
     private javax.swing.JButton saveBtnRegPas;
+    private javax.swing.JButton searchDokHomeBtn;
     private javax.swing.JButton submitAddMedRec;
     private javax.swing.JTable tabelPasien;
+    private javax.swing.JTable tabelUser;
+    private javax.swing.JTable tabeldetail;
+    private javax.swing.JButton tambahDokHomBtn;
     private javax.swing.JTextField tanggalDetailMedRec;
     private javax.swing.JTextField userLog;
     private javax.swing.JTextField userLogAdmin;
