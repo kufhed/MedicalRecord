@@ -110,7 +110,8 @@ public class Frame extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelPasien = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
         addMedicalRecord = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
@@ -742,7 +743,7 @@ public class Frame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelPasien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -849,26 +850,34 @@ public class Frame extends javax.swing.JFrame {
                 "No", "Nama Dokter", "Penyakit", "Tanggal Periksa"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMinWidth(20);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(40);
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(40);
+        jScrollPane1.setViewportView(tabelPasien);
+        if (tabelPasien.getColumnModel().getColumnCount() > 0) {
+            tabelPasien.getColumnModel().getColumn(0).setMinWidth(20);
+            tabelPasien.getColumnModel().getColumn(0).setPreferredWidth(40);
+            tabelPasien.getColumnModel().getColumn(0).setMaxWidth(40);
         }
+
+        jButton4.setText("Back");
 
         javax.swing.GroupLayout pasienViewLayout = new javax.swing.GroupLayout(pasienView);
         pasienView.setLayout(pasienViewLayout);
         pasienViewLayout.setHorizontalGroup(
             pasienViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 778, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pasienViewLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addContainerGap())
         );
         pasienViewLayout.setVerticalGroup(
             pasienViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pasienViewLayout.createSequentialGroup()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1512,6 +1521,7 @@ public class Frame extends javax.swing.JFrame {
             cardLayout.show(induk, "dokHome");
             dokterFrame.setId(userLogDok.getText());
             dokterFrame.setPass(passLogDok.getText());
+            
         }else
         {
             JOptionPane.showMessageDialog(null, "Username atau Password Salah!");
@@ -1528,6 +1538,17 @@ public class Frame extends javax.swing.JFrame {
                 cardLayout.show(induk, "pasienView");
                 pasienFrame.setId(userLog.getText());
                 pasienFrame.setPass(passLog.getText());
+                ResultSet rs=pasienFrame.viewMedRec();
+                int i=0;
+                while(rs.next())
+                {
+                    tabelPasien.setValueAt(Integer.toString(i), 0, i);
+                    Dokter d=new Dokter();
+                    tabelPasien.setValueAt(d.getNamaById(rs.getString(2)), 0, i);
+                    tabelPasien.setValueAt(rs.getString(3), 0, i);
+                    tabelPasien.setValueAt(rs.getString(4), 0, i);
+                    i++;
+                }
             }
         } catch (SQLException ex) {
             Logger.getLogger(Frame.class.getName()).log(Level.SEVERE, null, ex);
@@ -1663,6 +1684,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1722,7 +1744,6 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
@@ -1758,6 +1779,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton saveBtnRegDok;
     private javax.swing.JButton saveBtnRegPas;
     private javax.swing.JButton submitAddMedRec;
+    private javax.swing.JTable tabelPasien;
     private javax.swing.JTextField tanggalDetailMedRec;
     private javax.swing.JTextField userLog;
     private javax.swing.JTextField userLogAdmin;
