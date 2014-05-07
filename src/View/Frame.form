@@ -384,7 +384,7 @@
                       <Font name="Tahoma" size="24" style="1"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="LOGIN DOKTER"/>
+                    <Property name="text" type="java.lang.String" value="LOGIN ADMIN"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -425,7 +425,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="daftarDok"/>
+              <CardConstraints cardName="daftarDokter"/>
             </Constraint>
           </Constraints>
 
@@ -618,6 +618,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancel"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelBtnRegDokActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel34">
               <Properties>

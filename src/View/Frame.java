@@ -386,7 +386,7 @@ public class Frame extends javax.swing.JFrame {
 
         labInfoLog2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         labInfoLog2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labInfoLog2.setText("LOGIN DOKTER");
+        labInfoLog2.setText("LOGIN ADMIN");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -516,6 +516,11 @@ public class Frame extends javax.swing.JFrame {
         });
 
         cancelBtnRegDok.setText("Cancel");
+        cancelBtnRegDok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelBtnRegDokActionPerformed(evt);
+            }
+        });
 
         jLabel34.setText("Nama");
 
@@ -588,7 +593,7 @@ public class Frame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        induk.add(daftarDokter, "daftarDok");
+        induk.add(daftarDokter, "daftarDokter");
 
         daftarPasien.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1469,7 +1474,7 @@ public class Frame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(induk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE)
+            .addComponent(induk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 846, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1597,7 +1602,7 @@ public class Frame extends javax.swing.JFrame {
         DataBase db=new DataBase();
         String username=userLogAdmin.getText();
         String pass=passLogAdmin.getText();
-        String query="Select * from admin where userAdmin='"+username+"' AND passAdmin='"+pass+"';";
+        String query="Select * from admin where idAdmin='"+username+"' AND passAdmin='"+pass+"'";
         ResultSet rs=null;
         rs=db.getData(query);
         if(rs==null)
@@ -1642,12 +1647,21 @@ public class Frame extends javax.swing.JFrame {
         d.setPass(passRegDok.getText());
         d.setKeahlian(keahlianRegDok.getText());
         d.setJenisKelamin(getSelectedButtonText(btgDok));
-        if(adminFrame.saveDokter(d))
+        if(d.getPass().equals(passConfRegDok))
         {
-            JOptionPane.showMessageDialog(null, "Berhasil Menyimpan");
-        }else
-        {
-            JOptionPane.showMessageDialog(null, "Penyimpanan Gagal!");
+            if(adminFrame.saveDokter(d))
+            {
+                JOptionPane.showMessageDialog(null, "Berhasil Menyimpan");
+                idRegDok.setText(null);
+                namaRegDok.setText(null);
+                passRegDok.setText(null);
+                keahlianRegDok.setText(null);
+                passConfRegDok.setText(null);
+                btgDok.clearSelection();
+            }else
+            {
+                JOptionPane.showMessageDialog(null, "Penyimpanan Gagal!");
+            }
         }
         
     }//GEN-LAST:event_saveBtnRegDokActionPerformed
@@ -1715,6 +1729,12 @@ public class Frame extends javax.swing.JFrame {
         CardLayout cardLayout = (CardLayout) induk.getLayout();
         cardLayout.show(induk, "viewMedDetail");
     }//GEN-LAST:event_tabelPasienMouseClicked
+
+    private void cancelBtnRegDokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnRegDokActionPerformed
+        // TODO add your handling code here:
+        CardLayout cardLayout = (CardLayout) induk.getLayout();
+        cardLayout.show(induk, "loginAd");
+    }//GEN-LAST:event_cancelBtnRegDokActionPerformed
 
     /**
      * @param args the command line arguments
