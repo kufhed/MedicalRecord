@@ -119,8 +119,9 @@ public class Dokter {
         }
         return "tp"+idPasien+Integer.toString(a);
     }
-    public void saveDataPenyakitPasien(Penyakit p, String id, String nama)
+    public boolean saveDataPenyakitPasien(Penyakit p, String id, String nama)
     {
+        boolean hasil=false;
         DataBase db=new DataBase();
         String idPenyakit=null;
         ResultSet rs=null;
@@ -135,13 +136,14 @@ public class Dokter {
             System.out.println(idPenyakit);
             query = "insert into penyakit values("+ getQuote(getIdTabPenyakit(id)) +","+getQuote(id)+" , "+getQuote(idPenyakit)+" , "+getQuote(p.getTanggal())+" , "+getQuote(this.id)+" , "+getQuote(p.getStatus())+" , "+getQuote(p.getKeterangan())+");";
             db.query(query);
+            hasil=true;
             System.out.println(query);
         }
         }catch(SQLException e)
         {
             //JOptionPane.showMessageDialog(null, e.getStackTrace());
         }
-        
+        return hasil;
     }
     public void saveDataPasien(Pasien pas)
     {
