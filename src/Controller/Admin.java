@@ -8,6 +8,7 @@ package Controller;
 
 import Modul.DataBase;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -69,15 +70,19 @@ public class Admin {
     public boolean saveDokter(Dokter d)
     {
         DataBase db=new DataBase();
+        System.out.println("masuk ke fungsi");
         boolean hasil=false;
-        String query="insert into dokter values('"+d.getId()+"','"+d.getPass()+"','"+d.getNama()+"','"+d.getKeahlian()+"','"+d.getJenisKelamin()+"');";
+        String query="insert into dokter values('"+d.getId()+"','"+d.getPass()+"','"+d.getNama()+"','"+d.getJenisKelamin()+"','"+d.getKeahlian()+"');";
         try
         {
+            
            db.query(query);
            hasil=true;
+           System.out.println(hasil);
            
         }catch(Exception e)
         {
+            JOptionPane.showMessageDialog(null, e.getMessage());
             hasil=false;
         }
         return hasil;
