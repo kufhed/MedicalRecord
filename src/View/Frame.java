@@ -1992,7 +1992,7 @@ public class Frame extends javax.swing.JFrame {
 
     private void penyakitCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_penyakitCaretPositionChanged
         // TODO add your handling code here:
-        Penyakit pe=new Penyakit();
+        /*Penyakit pe=new Penyakit();
         ResultSet rs=pe.getPenyakitNama(penyakit.getText());
         String penyakit[];
         int i=1;
@@ -2015,7 +2015,7 @@ public class Frame extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Frame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_penyakitCaretPositionChanged
 
     /**
