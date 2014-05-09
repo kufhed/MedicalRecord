@@ -501,7 +501,7 @@
                           <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="230" max="32767" attributes="0"/>
+                      <EmptySpace pref="39" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="saveBtnRegDok" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cancelBtnRegDok" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -715,7 +715,7 @@
                           <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jRadioButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="241" max="32767" attributes="0"/>
+                      <EmptySpace pref="47" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="saveBtnRegPas" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cancelBtnRegPas" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -756,7 +756,7 @@
                       <Font name="Tahoma" size="24" style="1"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Daftar Dokter"/>
+                    <Property name="text" type="java.lang.String" value="Daftar Pasien"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -834,6 +834,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancel"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelBtnRegPasActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel35">
               <Properties>
@@ -1021,10 +1024,10 @@
                           <Component id="namaAddMedRec" max="32767" attributes="0"/>
                           <Component id="idAddMedRec" max="32767" attributes="0"/>
                           <Component id="jScrollPane2" alignment="0" pref="326" max="32767" attributes="0"/>
-                          <Component id="penyakit" alignment="0" max="32767" attributes="0"/>
                           <Component id="pilihTanggal" max="32767" attributes="0"/>
+                          <Component id="penyakit" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="262" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1042,12 +1045,12 @@
                           <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="idAddMedRec" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                           <Component id="pilihTanggal" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="penyakit" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1063,7 +1066,7 @@
                           <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="148" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="submitAddMedRec" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cancelAddMedRec" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1135,9 +1138,6 @@
             <Component class="javax.swing.JTextField" name="namaAddMedRec">
             </Component>
             <Component class="javax.swing.JTextField" name="idAddMedRec">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
-              </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
               <AuxValues>
@@ -1169,6 +1169,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancel"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelAddMedRecActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel23">
               <Properties>
@@ -1192,6 +1195,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="penyakit">
+              <Events>
+                <EventHandler event="caretPositionChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="penyakitCaretPositionChanged"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel36">
               <Properties>
@@ -1199,6 +1205,9 @@
               </Properties>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="pilihTanggal">
+              <Properties>
+                <Property name="dateFormatString" type="java.lang.String" value="d MMM yyyy"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -1221,7 +1230,10 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jScrollPane3" min="-2" pref="601" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="189" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jButton1" pref="189" max="32767" attributes="0"/>
+                          <Component id="jButton2" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -1259,7 +1271,11 @@
                       <EmptySpace pref="90" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane3" min="-2" pref="327" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jButton1" min="-2" pref="41" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButton2" min="-2" pref="55" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -1371,6 +1387,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Medical Record"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Kembali"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1452,7 +1479,7 @@
                           <Component id="jScrollPane4" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="135" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="cancelDetailMedRec" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1619,10 +1646,12 @@
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
-                              <Component id="tambahDokHomBtn" min="-2" max="-2" attributes="0"/>
+                              <Component id="tambahDokHomBtn" min="-2" pref="174" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButton3" min="-2" pref="173" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="32" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1636,7 +1665,8 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="idSearch" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tambahDokHomBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tambahDokHomBtn" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="jButton3" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1645,7 +1675,7 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="searchDokHomeBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                      <EmptySpace pref="63" max="32767" attributes="0"/>
                       <Component id="jScrollPane5" min="-2" pref="302" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1759,6 +1789,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tambahDokHomBtnActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Keluar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
