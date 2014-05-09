@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  *
@@ -112,7 +113,7 @@ public class Frame extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelPasien = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
+        Keluar = new javax.swing.JButton();
         addMedicalRecord = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
@@ -126,12 +127,12 @@ public class Frame extends javax.swing.JFrame {
         ketAddMedRec = new javax.swing.JTextArea();
         submitAddMedRec = new javax.swing.JButton();
         cancelAddMedRec = new javax.swing.JButton();
-        pilihTanggal = new com.toedter.calendar.JDateChooser();
         jLabel23 = new javax.swing.JLabel();
         jRadioButton5 = new javax.swing.JRadioButton();
         jRadioButton6 = new javax.swing.JRadioButton();
         penyakit = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
+        pilihTanggal = new com.toedter.calendar.JDateChooser();
         viewMedicalRecord = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
@@ -150,8 +151,6 @@ public class Frame extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
         idDetailMedRec = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -160,6 +159,7 @@ public class Frame extends javax.swing.JFrame {
         tanggalDetailMedRec = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         dokterViewMedRecDetail = new javax.swing.JTextField();
+        statViewMedDetail = new javax.swing.JTextField();
         dokHome = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -168,8 +168,8 @@ public class Frame extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        idSearch = new javax.swing.JTextField();
+        namaSearch = new javax.swing.JTextField();
         searchDokHomeBtn = new javax.swing.JButton();
         tambahDokHomBtn = new javax.swing.JButton();
 
@@ -275,7 +275,7 @@ public class Frame extends javax.swing.JFrame {
                 .addComponent(passLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(logBtnPas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 263, Short.MAX_VALUE)
                 .addGroup(loginPasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labLogDok)
                     .addComponent(labLogAd))
@@ -373,7 +373,7 @@ public class Frame extends javax.swing.JFrame {
                 .addComponent(passLogDok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(logBtnDok)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 218, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 266, Short.MAX_VALUE)
                 .addComponent(labLogAd1)
                 .addContainerGap())
         );
@@ -457,7 +457,7 @@ public class Frame extends javax.swing.JFrame {
                 .addComponent(passLogAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(logBtnAd)
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addContainerGap(299, Short.MAX_VALUE))
         );
 
         induk.add(loginAd, "loginAd");
@@ -586,7 +586,7 @@ public class Frame extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jRadioButton1)
                     .addComponent(jRadioButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
                 .addGroup(daftarDokterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveBtnRegDok)
                     .addComponent(cancelBtnRegDok))
@@ -720,7 +720,7 @@ public class Frame extends javax.swing.JFrame {
                     .addComponent(jLabel16)
                     .addComponent(jRadioButton3)
                     .addComponent(jRadioButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, Short.MAX_VALUE)
                 .addGroup(daftarPasienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveBtnRegPas)
                     .addComponent(cancelBtnRegPas))
@@ -864,37 +864,40 @@ public class Frame extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tabelPasien);
-        if (tabelPasien.getColumnModel().getColumnCount() > 0) {
-            tabelPasien.getColumnModel().getColumn(0).setMinWidth(20);
-            tabelPasien.getColumnModel().getColumn(0).setPreferredWidth(40);
-            tabelPasien.getColumnModel().getColumn(0).setMaxWidth(40);
-        }
+        tabelPasien.getColumnModel().getColumn(0).setMinWidth(20);
+        tabelPasien.getColumnModel().getColumn(0).setPreferredWidth(40);
+        tabelPasien.getColumnModel().getColumn(0).setMaxWidth(40);
 
-        jButton4.setText("jButton4");
+        Keluar.setText("Keluar");
+        Keluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KeluarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pasienViewLayout = new javax.swing.GroupLayout(pasienView);
         pasienView.setLayout(pasienViewLayout);
         pasienViewLayout.setHorizontalGroup(
             pasienViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pasienViewLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(98, 98, 98))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 778, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Keluar)
+                .addContainerGap())
         );
         pasienViewLayout.setVerticalGroup(
             pasienViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pasienViewLayout.createSequentialGroup()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
+                .addComponent(Keluar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        induk.add(pasienView, "PasienView");
+        induk.add(pasienView, "pasienView");
 
         addMedicalRecord.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -944,9 +947,6 @@ public class Frame extends javax.swing.JFrame {
 
         cancelAddMedRec.setText("Cancel");
 
-        pilihTanggal.setDateFormatString("dd MMMM  yyyy");
-        pilihTanggal.setPreferredSize(new java.awt.Dimension(120, 20));
-
         jLabel23.setText("Status");
 
         btgAddMedRec.add(jRadioButton5);
@@ -986,9 +986,9 @@ public class Frame extends javax.swing.JFrame {
                     .addComponent(namaAddMedRec)
                     .addComponent(idAddMedRec)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
-                    .addComponent(pilihTanggal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(penyakit))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(penyakit)
+                    .addComponent(pilihTanggal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         addMedicalRecordLayout.setVerticalGroup(
             addMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1006,7 +1006,7 @@ public class Frame extends javax.swing.JFrame {
                 .addGroup(addMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel21)
                     .addComponent(pilihTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(14, 14, 14)
                 .addGroup(addMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(penyakit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel36))
@@ -1019,7 +1019,7 @@ public class Frame extends javax.swing.JFrame {
                 .addGroup(addMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addGroup(addMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitAddMedRec)
                     .addComponent(cancelAddMedRec))
@@ -1161,13 +1161,14 @@ public class Frame extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabeldetailMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tabeldetailMouseEntered(evt);
+            }
         });
         jScrollPane3.setViewportView(tabeldetail);
-        if (tabeldetail.getColumnModel().getColumnCount() > 0) {
-            tabeldetail.getColumnModel().getColumn(0).setMinWidth(20);
-            tabeldetail.getColumnModel().getColumn(0).setPreferredWidth(30);
-            tabeldetail.getColumnModel().getColumn(0).setMaxWidth(50);
-        }
+        tabeldetail.getColumnModel().getColumn(0).setMinWidth(20);
+        tabeldetail.getColumnModel().getColumn(0).setPreferredWidth(30);
+        tabeldetail.getColumnModel().getColumn(0).setMaxWidth(50);
 
         jLabel25.setText("Nama Pasien : ");
 
@@ -1196,7 +1197,7 @@ public class Frame extends javax.swing.JFrame {
                         .addComponent(jLabel26)
                         .addGap(18, 18, 18)
                         .addComponent(idLabViewMedRec)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         viewMedicalRecordLayout.setVerticalGroup(
             viewMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1210,7 +1211,7 @@ public class Frame extends javax.swing.JFrame {
                 .addGroup(viewMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
                     .addComponent(idLabViewMedRec))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addGroup(viewMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1252,13 +1253,6 @@ public class Frame extends javax.swing.JFrame {
 
         jLabel31.setText("Status");
 
-        btgAddMedRec.add(jRadioButton7);
-        jRadioButton7.setSelected(true);
-        jRadioButton7.setText("Sembuh");
-
-        btgAddMedRec.add(jRadioButton8);
-        jRadioButton8.setText("Belum Sembuh");
-
         idDetailMedRec.setEditable(false);
 
         jLabel32.setText("Keterangan");
@@ -1270,6 +1264,11 @@ public class Frame extends javax.swing.JFrame {
         jScrollPane4.setViewportView(ketDetailMedRec);
 
         cancelDetailMedRec.setText("Back");
+        cancelDetailMedRec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelDetailMedRecActionPerformed(evt);
+            }
+        });
 
         tanggalDetailMedRec.setEditable(false);
 
@@ -1297,16 +1296,13 @@ public class Frame extends javax.swing.JFrame {
                     .addComponent(jLabel33))
                 .addGap(18, 18, 18)
                 .addGroup(viewMedDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(viewMedDetailLayout.createSequentialGroup()
-                        .addComponent(jRadioButton7)
-                        .addGap(36, 36, 36)
-                        .addComponent(jRadioButton8))
                     .addComponent(namaDetailMedRec)
                     .addComponent(idDetailMedRec)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
                     .addComponent(tanggalDetailMedRec)
-                    .addComponent(dokterViewMedRecDetail))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(dokterViewMedRecDetail)
+                    .addComponent(statViewMedDetail))
+                .addContainerGap())
         );
         viewMedDetailLayout.setVerticalGroup(
             viewMedDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1331,13 +1327,12 @@ public class Frame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(viewMedDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
-                    .addComponent(jRadioButton7)
-                    .addComponent(jRadioButton8))
-                .addGap(24, 24, 24)
+                    .addComponent(statViewMedDetail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(viewMedDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel32))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addComponent(cancelDetailMedRec)
                 .addContainerGap())
         );
@@ -1403,6 +1398,11 @@ public class Frame extends javax.swing.JFrame {
                 "ID USER", "Nama User"
             }
         ));
+        tabelUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelUserMouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(tabelUser);
 
         jLabel8.setText("Search Pasien");
@@ -1412,6 +1412,11 @@ public class Frame extends javax.swing.JFrame {
         jLabel10.setText("Nama User");
 
         searchDokHomeBtn.setText("Search");
+        searchDokHomeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchDokHomeBtnActionPerformed(evt);
+            }
+        });
 
         tambahDokHomBtn.setText("Tambah Data Pasien Baru");
         tambahDokHomBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -1425,7 +1430,7 @@ public class Frame extends javax.swing.JFrame {
         dokHomeLayout.setHorizontalGroup(
             dokHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 775, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE)
             .addGroup(dokHomeLayout.createSequentialGroup()
                 .addGroup(dokHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(dokHomeLayout.createSequentialGroup()
@@ -1441,11 +1446,11 @@ public class Frame extends javax.swing.JFrame {
                                     .addComponent(jLabel10))
                                 .addGap(20, 20, 20)
                                 .addGroup(dokHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                    .addComponent(jTextField1))))
+                                    .addComponent(namaSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(idSearch))))
                         .addGap(179, 179, 179)
                         .addComponent(tambahDokHomBtn)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         dokHomeLayout.setVerticalGroup(
             dokHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1456,15 +1461,15 @@ public class Frame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(dokHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tambahDokHomBtn))
                 .addGap(18, 18, 18)
                 .addGroup(dokHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(namaSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(searchDokHomeBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -1474,7 +1479,7 @@ public class Frame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(induk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 846, Short.MAX_VALUE)
+            .addComponent(induk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1573,6 +1578,7 @@ public class Frame extends javax.swing.JFrame {
     private void logBtnPasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logBtnPasActionPerformed
         // TODO add your handling code here:
         Pasien pas=new Pasien();
+        Penyakit p=new Penyakit();
         try {
             if(pas.login(userLog.getText(), passLog.getText()))
             {
@@ -1584,13 +1590,22 @@ public class Frame extends javax.swing.JFrame {
                 int i=0;
                 while(rs.next())
                 {
-                    tabelPasien.setValueAt(Integer.toString(i), 0, i);
+                    tabelPasien.setValueAt(rs.getString(1), i, 0);
                     Dokter d=new Dokter();
-                    tabelPasien.setValueAt(d.getNamaById(rs.getString(2)), 0, i);
-                    tabelPasien.setValueAt(rs.getString(3), 0, i);
-                    tabelPasien.setValueAt(rs.getString(4), 0, i);
+                    if(d.getNamaById(rs.getString(5))!=null)
+                    {
+                        tabelPasien.setValueAt(d.getNamaById(rs.getString(5)), i, 1);
+                    }
+                    if(p.getPenyakitById(rs.getString(3))!=null)
+                    {
+                        tabelPasien.setValueAt(p.getPenyakitById(rs.getString(3)), i, 2);
+                    }
+                    tabelPasien.setValueAt(rs.getString(4), i, 3);
+                    System.out.println("Dokter: "+d.getNamaById(rs.getString(5)));
+                    System.out.println("penyakit: "+p.getPenyakitById(rs.getString(3)));
                     i++;
                 }
+                
             }
         } catch (SQLException ex) {
             Logger.getLogger(Frame.class.getName()).log(Level.SEVERE, null, ex);
@@ -1661,7 +1676,7 @@ public class Frame extends javax.swing.JFrame {
             }else
             {
                 JOptionPane.showMessageDialog(null, "Penyimpanan Gagal!");
-            }
+            } 
         }
         
     }//GEN-LAST:event_saveBtnRegDokActionPerformed
@@ -1726,8 +1741,39 @@ public class Frame extends javax.swing.JFrame {
 
     private void tabelPasienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPasienMouseClicked
         // TODO add your handling code here:
+        Penyakit p=new Penyakit();
         CardLayout cardLayout = (CardLayout) induk.getLayout();
         cardLayout.show(induk, "viewMedDetail");
+        String temp=tabelPasien.getValueAt(tabelPasien.getSelectedRow(), 0).toString();
+        ResultSet rs=pasienFrame.getPasien(pasienFrame.getId());
+        ResultSet rs1=p.getPenyakit(temp);
+        System.out.println("temp: "+temp);
+        try {
+            while(rs.next())
+            {
+                System.out.println("id Pasien: "+pasienFrame.getId());
+              idDetailMedRec.setText(pasienFrame.getId());
+              namaDetailMedRec.setText(rs.getString(3));
+              
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Frame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            while(rs1.next())
+                {
+                    Dokter d=new Dokter();
+                    System.out.println("tanggal: "+rs1.getString(4)+" dokter: "+d.getNamaById(rs1.getString(5))+" Status: "+rs1.getString(5));
+                    tanggalDetailMedRec.setText(rs1.getString(4));
+                    dokterViewMedRecDetail.setText(d.getNamaById(rs1.getString(5)));
+                    statViewMedDetail.setText(rs1.getString(6));
+                    ketDetailMedRec.setText(rs1.getString(7));    
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(Frame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_tabelPasienMouseClicked
 
     private void cancelBtnRegDokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnRegDokActionPerformed
@@ -1735,6 +1781,87 @@ public class Frame extends javax.swing.JFrame {
         CardLayout cardLayout = (CardLayout) induk.getLayout();
         cardLayout.show(induk, "loginAd");
     }//GEN-LAST:event_cancelBtnRegDokActionPerformed
+
+    private void tabeldetailMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabeldetailMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabeldetailMouseEntered
+
+    private void KeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeluarActionPerformed
+        // TODO add your handling code here:
+         CardLayout cardLayout = (CardLayout) induk.getLayout();
+        cardLayout.show(induk, "loginPas");
+        pasienFrame.setResetPasien();
+    }//GEN-LAST:event_KeluarActionPerformed
+
+    private void cancelDetailMedRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelDetailMedRecActionPerformed
+        // TODO add your handling code here:
+        if(pasienFrame.getId()!=null)
+        {
+            CardLayout cardLayout = (CardLayout) induk.getLayout();
+            cardLayout.show(induk, "pasienView");
+        }else
+        {
+            if(dokterFrame.getId()!=null)
+            {
+                 CardLayout cardLayout = (CardLayout) induk.getLayout();
+                 cardLayout.show(induk, "dokHome");
+            }
+        }
+    }//GEN-LAST:event_cancelDetailMedRecActionPerformed
+
+    private void searchDokHomeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchDokHomeBtnActionPerformed
+        // TODO add your handling code here:
+        String id=idSearch.getText();
+        String nama=namaSearch.getText();
+        System.out.println("Massuk");
+        System.out.println("isi id: "+id);
+        if(!id.isEmpty())
+        {
+            System.out.println("masuk id null");
+            Pasien p=new Pasien();
+            ResultSet rs=p.getPasien(id);
+            int i=0;
+            try {
+                while(rs.next())
+                {
+                    tabelUser.setValueAt(rs.getString(1), i, 0);
+                    tabelUser.setValueAt(rs.getString(3), i, 1);
+                    i++;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Frame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }else
+        {
+            Pasien p=new Pasien();
+            ResultSet rs=p.getPasienByNama(nama);
+            int j=0;
+            if(rs==null)
+            {
+                System.out.println("Kosong cuy");
+            }
+            try {
+                while(rs.next())
+                {
+                    System.out.println("ID  : "+rs.getString(1));
+                    System.out.println("Nama  : "+rs.getString(3));
+                    tabelUser.setValueAt(rs.getString(1), j, 0);
+                    tabelUser.setValueAt(rs.getString(3), j, 1);
+                    
+                    
+                    j++;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Frame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_searchDokHomeBtnActionPerformed
+
+    private void tabelUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelUserMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tabelUserMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1772,6 +1899,7 @@ public class Frame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Keluar;
     private javax.swing.JPanel addMedicalRecord;
     private javax.swing.JTextField alamatRegPas;
     private javax.swing.ButtonGroup btgAddMedRec;
@@ -1790,9 +1918,9 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JLabel idLabViewMedRec;
     private javax.swing.JTextField idRegDok;
     private javax.swing.JTextField idRegPas;
+    private javax.swing.JTextField idSearch;
     private javax.swing.JPanel induk;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1845,15 +1973,11 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField keahlianRegDok;
     private javax.swing.JTextArea ketAddMedRec;
     private javax.swing.JTextArea ketDetailMedRec;
@@ -1873,6 +1997,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JTextField namaDetailMedRec;
     private javax.swing.JTextField namaRegDok;
     private javax.swing.JTextField namaRegPas;
+    private javax.swing.JTextField namaSearch;
     private javax.swing.JLabel pasLabViewMedRec;
     private javax.swing.JPanel pasienView;
     private javax.swing.JPasswordField passConfRegDok;
@@ -1887,6 +2012,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton saveBtnRegDok;
     private javax.swing.JButton saveBtnRegPas;
     private javax.swing.JButton searchDokHomeBtn;
+    private javax.swing.JTextField statViewMedDetail;
     private javax.swing.JButton submitAddMedRec;
     private javax.swing.JTable tabelPasien;
     private javax.swing.JTable tabelUser;
