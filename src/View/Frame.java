@@ -1759,7 +1759,19 @@ public class Frame extends javax.swing.JFrame {
         String dateString = String.format("%1$td-%1$tm-%1$tY", dateFromDateChooser);
         System.out.println(dateString);
         pe.setTanggal(dateString);
-        dokterFrame.saveDataPenyakitPasien(pe, p.getNama(), p.getId());
+        if(dokterFrame.saveDataPenyakitPasien(pe, p.getNama(), p.getId()))
+        {
+            namaAddMedRec.setText(null);
+            idAddMedRec.setText(null);
+            penyakit.setText(null);
+            ketAddMedRec.setText(null);
+            btgAddMedRec.clearSelection();
+            pilihTanggal.setDate(null);
+            JOptionPane.showMessageDialog(null, "Berhasil Di Tambahkan");
+        }else
+        {
+            JOptionPane.showMessageDialog(null, "Penambahan Gagal!");
+        }
     }//GEN-LAST:event_submitAddMedRecActionPerformed
 
     private void tambahDokHomBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahDokHomBtnActionPerformed
